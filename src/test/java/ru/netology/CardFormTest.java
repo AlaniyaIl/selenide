@@ -1,7 +1,11 @@
 package ru.netology;
 
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.FileDownloadMode;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
+import org.testng.annotations.BeforeSuite;
 
 import java.time.Duration;
 import java.time.LocalDate;
@@ -11,7 +15,7 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
 
-public class CardFormTest {
+ class CardFormTest {
 
     String generateDate(int days) {
         return LocalDate.now().plusDays(days).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
@@ -20,7 +24,7 @@ public class CardFormTest {
 
     @Test
     void positiveFormTest() {
-        String date = generateDate(4);
+        String date = generateDate(1);
         open("http://localhost:9999");
         $("[data-test-id= city] input").setValue("Москва");
         $("[data-test-id= date] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
@@ -34,8 +38,8 @@ public class CardFormTest {
 
 
     @Test
-    void dropDownTest() {
-        String date = generateDate(4);
+     void dropDownTest() {
+        String date = generateDate(1);
         open("http://localhost:9999");
         $("[data-test-id= city] input").setValue("Москва");
         $("[data-test-id= date] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
