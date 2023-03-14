@@ -16,11 +16,9 @@ repositories {
 
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.0'
-    testImplementation 'com.codeborne:selenide:6.8.1'
-    // https://mvnrepository.com/artifact/org.junit.platform/junit-platform-launcher
-    testImplementation"org.junit.platform:junit-platform-launcher:1.9.2"
-    testImplementation 'org.testng:testng:7.1.0'
 
+    implementation 'org.seleniumhq.selenium:selenium-http-jdk-client:4.8.1'
+    testImplementation 'com.codeborne:selenide:6.12.2'
 }
 
 test {
